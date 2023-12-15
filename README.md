@@ -1,0 +1,18 @@
+# parcel
+- Dev Build
+- Local Server
+- HMR = Hot Module Replacement
+- File Watcing Algorithm -Written in C++
+- Caching - Faster Builds
+- Image Optimization
+- Minification
+- Bundling
+- Compress
+- Consistant Hashing
+- Code splitting
+- Differential Bundling = supports older browsers
+- Diagnostics
+- Error Handling
+- HTTPs
+- Tree Shaking - remove unused code
+- Different den and production bundels
