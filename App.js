@@ -31,9 +31,9 @@ const Heading = () => (
 
         <Title />
 
-        // ! AT the end of day it is JS function
+        {/* {  ! AT the end of day it is JS function } */}
         {Title()}
-        
+
         <Title2 />
 
          <h2>I am a Component RC </h2>
