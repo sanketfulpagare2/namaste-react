@@ -7,7 +7,8 @@
     
 }
 .logo img{
-    width: 200px;
+    width: 80px;
+   
    
 }
 .nav-items{
@@ -96,4 +97,8 @@ h3{
     border-radius: 10px;
     
     
+}
+.filter-btn{
+    cursor: pointer;
+    margin: 10px;
 }
