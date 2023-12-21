@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ResCard from './ResCard';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 
 const Body = () =>{
@@ -26,7 +27,7 @@ const Body = () =>{
 
     //conditional Rendring
     if (resListU.length ===0){
-        return <Shimmer/>
+        return <Shimmer/> 
          
         
         
@@ -44,7 +45,7 @@ const Body = () =>{
                 onChange={(e)=>{setsearchName(e.target.value)}}
                 />
                 <button className="search-btn" onClick={()=>{
-                    //let filteredList= resListU.filter((item)=> item.info.name.toLowerCase().includes(searchName.toLowerCase()));
+                   
                     let filteredList= resListU.filter((item)=> {return item.info.name.toLowerCase().includes(searchName.toLowerCase())});
 
                     setfilterResList(filteredList);
@@ -69,7 +70,10 @@ const Body = () =>{
             </div>
             <div className="card-container">
                {filterResList.map((restaurant)=>(
-                <ResCard key={restaurant.info.id} resData={restaurant}/>
+               <Link 
+               key={restaurant.info.id} 
+               to={"/restaurants/" + restaurant.info.id}> 
+               <ResCard  resData={restaurant}/></Link>
                 
                ))
                 }
