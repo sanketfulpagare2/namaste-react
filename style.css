@@ -67,9 +67,9 @@ a{
 }
 
 .res-card{
-    margin: 5px;
+    margin: 13px;
     width: 270px;
-    height: auto;
+    height: 450px;
     background-color:#ececec ;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0;

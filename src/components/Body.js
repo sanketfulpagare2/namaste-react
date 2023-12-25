@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import ResCard from './ResCard';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 
 const Body = () =>{
     const [resListU, setresListU] = useState([]);
     const [filterResList, setfilterResList] = useState([]);
     const [searchName, setsearchName] = useState("");
+    
 
     useEffect(()=>{
         fetchData();
@@ -25,6 +27,11 @@ const Body = () =>{
 
 
 
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false)
+        return (
+        <h1>You are currently offline!</h1>);
+    
     //conditional Rendring
     if (resListU.length ===0){
         return <Shimmer/> 
