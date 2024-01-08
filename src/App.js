@@ -6,15 +6,21 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import DarkmodeTheme from "./components/DarkmodeTheme";
 import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
+
 
 const AppLayout = () =>{
     return (
 
-        <div className="app">
+        <div className="app  dark:bg-slate-800">
+            <span className=" hidden">
+                <DarkmodeTheme />
+                </span>
+
            <Header/>
             <Outlet/>
-        
+            
         </div>
     );
 }
@@ -37,6 +43,7 @@ const appRouter =createBrowserRouter([
                 path:"/contact",
                 element :<Contact/>,
             },
+            
             {
                 path:"/restaurants/:resId",
                 element :<RestaurantMenu/>,
