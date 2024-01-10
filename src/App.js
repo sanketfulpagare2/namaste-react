@@ -13,7 +13,7 @@ import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
 const AppLayout = () =>{
     return (
 
-        <div className="app  dark:bg-slate-800">
+        <div className="pb-10 dark:bg-slate-800 h-[100%]">
             <span className=" hidden">
                 <DarkmodeTheme />
                 </span>

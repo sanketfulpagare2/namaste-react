@@ -6,20 +6,20 @@ const ResCard = (props) =>{
     const {
         name,
         cuisines,
-        costForTwo,
+        
         avgRating,
         aggregatedDiscountInfoV3,
 
         cloudinaryImageId,
-        sla,
+        sla
     }=resData?.info;
 
-
+    // console.log(aggregatedDiscountInfoV3.subHeader)
     return(
-        <div className="res-card  p-3 mx-2 w-[250px] h-[300px] bg-slate-50 justify-center rounded-md shadow-xl text-gray-700 dark:text-white
+        <div className="res-card  p-3 mx-2 w-[250px] min-h-[300px] bg-slate-50 justify-center rounded-md shadow-xl text-gray-700 dark:text-white
          dark:bg-slate-700  hover:scale-105 transition duration-300 ease-in-out " >
             <div className="res-logo ">
-                <h4 className='absolute bg-green-500 font-normal   px-2 rounded-r-full    '>{aggregatedDiscountInfoV3.subHeader }</h4>
+                <h4 className='absolute bg-green-500 font-normal   px-2 rounded-r-full    '>{  }</h4>
                 
                 <img  className=" w-full h-[150px] object-cover rounded-md"src={CDN_URL+ cloudinaryImageId} alt="product"/>
             </div>

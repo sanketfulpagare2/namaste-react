@@ -14,6 +14,7 @@ const Body = () =>{
 
     useEffect(()=>{
         fetchData();
+       
     },[]);
 
     const fetchData =async ()=>{
@@ -21,11 +22,11 @@ const Body = () =>{
         const data =await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5642452&lng=73.7768511&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
         );
         const json=await data.json();
-       console.log(json)
-       console.log("helo")
-        setresListU(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
        
-        setfilterResList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setresListU(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+       
+        setfilterResList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        
     }
 
 
@@ -38,33 +39,33 @@ const Body = () =>{
     //conditional Rendring
     if (resListU.length===0 ){
         return <Shimmer/> 
-         
-        
-      
+ 
     }
+    const filters=()=>{
+        let filteredList= resListU.filter((item)=> {return item.info.name.toLowerCase().includes(searchName.toLowerCase())});
 
+  setfilterResList(filteredList);
+  }
+     
     return(
         <div className="body my-20" >
             <div className="filter flex py-7  justify-center gap-10">
                
                
                
-               {console.log(resListU)}
+               
 
                 <input
                 className=" border-none rounded-full px-5 bg-green-50 outline-none dark:bg-blue-200 font-semibold w-[35rem]  shadow-lg de   "
                 type='text'
                 placeholder='Search By Name...'
                 value={searchName}
-                onChange={(e)=>{setsearchName(e.target.value)}}
+                onChange={(e)=>{setsearchName(e.target.value); filters(); }  }
                 />
-                <button className="search-btn bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full" onClick={()=>{
-                   
-                    let filteredList= resListU.filter((item)=> {return item.info.name.toLowerCase().includes(searchName.toLowerCase())});
-
-                    setfilterResList(filteredList);
-
-                }}>Search</button>
+                <button className="search-btn bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full" onClick={()=>{ 
+                    setsearchName("");
+                    filters();
+                }}>All</button>
                 
 
                 
