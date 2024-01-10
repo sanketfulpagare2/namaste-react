@@ -11,7 +11,7 @@ const ResCard = (props) =>{
         aggregatedDiscountInfoV3,
 
         cloudinaryImageId,
-        sla
+        sla,
     }=resData?.info;
 
 

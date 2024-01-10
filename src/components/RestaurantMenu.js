@@ -19,7 +19,7 @@ const RestaurantMenu =(props)=>{
     
     return (
         <div className="menu">
-
+ 
         <h1>{name}</h1>
         <p><b>Cusine:</b> {cuisines.join(", ")} - {costForTwoMessage} </p>
         <h2>Menu</h2>
