@@ -3,11 +3,19 @@ import ItemList from './ItemList';
 
 const RestaurantCategory = (props) => {
 const{title,itemCards}=props?.data;
+const [count, setcount] = useState(1)
+
 
 
 
 const clickHandler=()=>{
-props.setShowIndex()
+  (props.showItems)?setcount(count+1
+    
+   ):setcount(1);
+   (count===2?setcount(1):setcount(count+1))
+   
+  
+  props.setShowIndex()
 }
   return (
     
@@ -22,7 +30,8 @@ props.setShowIndex()
 
 
 
-        {props.showItems && <ItemList data={props?.data?.itemCards}/>}
+              {console.log(count)}
+              {props.showItems &&count===1 && <ItemList data={props?.data?.itemCards}/>}
         </div>
    
   )

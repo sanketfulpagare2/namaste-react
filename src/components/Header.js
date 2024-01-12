@@ -16,9 +16,9 @@ const onlineStatus=useOnlineStatus();
                 <img className="w-24 rounded-full mx-2"src= {LOGO_URL}alt="LOGO"/>
 
                    
-                    {(btnName==="Logout") ? ( <div className="profile p-2 pe-5 rounded-full flex items-center gap-4 text-gray-800 bg-amber-300 dark:bg-slate-800 ">
+                    {(btnName==="Logout") ? ( <div className="profile p-2 pe-5 rounded-full flex items-center gap-4 bg-amber-100 dark:bg-slate-800 ">
                         <img className='w-9  rounded-full' src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" />
-                        <h1 className=' font-semibold text-slate-800 dark:text-sky-500'>{loggedInUser}</h1>
+                        <h1 className=' font-semibold  text-amber-600 dark:text-sky-500'>{loggedInUser}</h1>
                     </div>):"" }
 
 

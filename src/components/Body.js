@@ -11,6 +11,7 @@ const Body = () =>{
     const [filterResList, setfilterResList] = useState([]);
     const [searchName, setsearchName] = useState("");
     
+    
 
     useEffect(()=>{
         fetchData();
@@ -41,10 +42,11 @@ const Body = () =>{
         return <Shimmer/> 
  
     }
-    const filters=()=>{
+    const filters=()=>{     
         let filteredList= resListU.filter((item)=> {return item.info.name.toLowerCase().includes(searchName.toLowerCase())});
 
-  setfilterResList(filteredList);
+        setfilterResList(filteredList);
+        console.log(filteredList)
   }
      
     return(
@@ -62,7 +64,8 @@ const Body = () =>{
                 value={searchName}
                 onChange={(e)=>{setsearchName(e.target.value); filters(); }  }
                 />
-                <button className="search-btn bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full" onClick={()=>{ 
+                <button className="search-btn bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full" 
+                onClick={()=>{ 
                     setsearchName("");
                     filters();
                 }}>All</button>
