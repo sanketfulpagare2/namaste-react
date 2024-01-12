@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useContext, useState } from "react";
 import  ReactDOM  from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,11 +9,14 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import DarkmodeTheme from "./components/DarkmodeTheme";
 import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import UserContext from "./utils/UserContext";
 
 const AppLayout = () =>{
+    const  [showSearch,setShowserach]=useState(false)
+    const {loggedInUser}=useContext(UserContext);
     return (
-
+            <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
         <div className="pb-10 dark:bg-slate-800 h-[100%]">
             <span className=" hidden">
                 <DarkmodeTheme />
@@ -23,6 +26,7 @@ const AppLayout = () =>{
             <Outlet/>
             
         </div>
+        </UserContext.Provider>
     );
 }
 
