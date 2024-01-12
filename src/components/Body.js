@@ -1,12 +1,11 @@
 import React, { Suspense, useEffect, useState } from "react";
 import ResCard from "./ResCard";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import DarkmodeTheme from "./DarkmodeTheme";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
-import { safeAssign } from "@reduxjs/toolkit/dist/tsHelpers";
 
 const Body = () => {
   const [resListU, setresListU] = useState([]);

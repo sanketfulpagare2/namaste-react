@@ -1,7 +1,14 @@
 import React from 'react'
 import { CDN_URL } from '../utils/constants'
+import { useDispatch } from 'react-redux'
+import { addItems } from '../utils/cartSlice'
 
 const ItemList = (item) => {
+
+    const dispatch=useDispatch()
+    const handleAddItem=()=>{
+        dispatch(addItems("pizaa"));
+    }
    
   return (
     <div>
@@ -20,7 +27,11 @@ const ItemList = (item) => {
             </div>
             <div className=' relative mx-4 flex justify-center place-items-end'>
             <div className="absolute ">
-                    <button className=' py-1 px-4 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold'>Add +</button>
+                    <button className=' py-1 px-4 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold'
+                    
+                        onClick={handleAddItem}
+                    
+                    >Add +</button>
 
                 </div>
                 <img  src={CDN_URL+data?.card?.info?.imageId} className= "w-[140px] h-[100px] rounded-lg shadow-md"></img>  

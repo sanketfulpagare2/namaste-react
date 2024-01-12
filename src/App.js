@@ -11,22 +11,24 @@ import DarkmodeTheme from "./components/DarkmodeTheme";
 import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
 
 const AppLayout = () =>{
     const  [showSearch,setShowserach]=useState(false)
     const {loggedInUser}=useContext(UserContext);
-    return (
-            <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
-        <div className="pb-10 dark:bg-slate-800 h-[100%]">
-            <span className=" hidden">
-                <DarkmodeTheme />
-                </span>
 
-           <Header/>
-            <Outlet/>
+    return (
+        <Provider store={appStore}>
+            <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
+                <div className="pb-10 dark:bg-slate-800 h-[100%]">
             
-        </div>
-        </UserContext.Provider>
+
+                    <Header/>
+                    <Outlet/>
+            
+                 </div>
+            </UserContext.Provider>
+        </Provider>
     );
 }
 

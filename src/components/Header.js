@@ -5,9 +5,19 @@ import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import DarkmodeTheme from './DarkmodeTheme';
 import UserContext from '../utils/UserContext';
+import { useSelector } from 'react-redux';
+
+
+
+
 const Header = () =>{
+
+ const cartItems =useSelector((store)=>store.cart.items);
+ console.log(cartItems)
+
 const [btnName, setbtnName] = useState("Login");
 const onlineStatus=useOnlineStatus();
+
  const {loggedInUser,setShowserach,showSearch}=useContext(UserContext);
 
     return (
@@ -33,7 +43,7 @@ const onlineStatus=useOnlineStatus();
                     <li><Link to="/" >Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
-                    <li><Link to="/cart">Cart</Link></li>
+                    <li><Link to="/cart">Cart({cartItems.length})</Link></li>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>{
                            btnName==="Login" ? (setbtnName("Logout"), setShowserach(true)) : setbtnName("Login");
                     }}>

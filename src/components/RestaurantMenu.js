@@ -7,16 +7,16 @@ import { useParams } from "react-router-dom";
 
 const RestaurantMenu = (props) => {
   const { resId } = useParams();
-  const resInfo = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(0);
-
-
-  if (resInfo === null) {
+  const resInfo = useRestaurantMenu(resId);
+  
+  if (resInfo.length === 0) {
     return <Shimmer />;
   }
-
-  const { name, cuisines, costForTwoMessage } =
+  const { name, cuisines,} =
     resInfo?.cards[0]?.card?.card?.info;
+  
+
   // const {itemCards} =resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   const categories =
@@ -41,7 +41,7 @@ const RestaurantMenu = (props) => {
           key={category?.card?.card?.title}
           data={category?.card?.card}
           showItems={(index === showIndex)
-           ?true:false}
+          ?true:false}
           
         
           setShowIndex={() => setShowIndex(index)}
