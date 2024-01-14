@@ -1,8 +1,11 @@
 import React from "react";
 import { CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { setMins } from "../utils/cartSlice";
 
 const ResCard = (props) => {
-  const { resData } = props;
+  
+   const { resData } = props;
   const {
     name,
     cuisines,
@@ -13,8 +16,10 @@ const ResCard = (props) => {
     cloudinaryImageId,
     sla,
   } = resData?.info;
+ 
+ 
 
-  console.log(resData.info);
+  
   return (
     <div
       className="res-card  p-3 mx-2 w-[250px] min-h-[300px] bg-slate-50 justify-center rounded-md shadow-xl text-gray-700 dark:text-white

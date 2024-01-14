@@ -1,4 +1,4 @@
-import { json } from "express/lib/response";
+
 import React from "react";
 class UserClass extends React.Component{
 
@@ -29,15 +29,14 @@ class UserClass extends React.Component{
     render(){
 
         
-        const {name,location,contact}=this.state.userInfo;
+        const {login}=this.state.userInfo;
        
         return(
                 <div className="user-card">
                   
                     
-                    <h2>Name:{name}</h2>
-                    <h3>Location:{location}</h3>
-                    <h4>Contact:{contact}</h4>
+                    <h2>Name:{login}</h2>
+                    
                 </div>
         )
     

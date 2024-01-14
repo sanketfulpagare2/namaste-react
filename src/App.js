@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from "react";
+import React, { Suspense, lazy, useContext, useState } from "react";
 import  ReactDOM  from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,11 +7,15 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import DarkmodeTheme from "./components/DarkmodeTheme";
+
 import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import UserContext from "./utils/UserContext";
 import appStore from "./utils/appStore";
+// import Cart from "./components/Cart";
+
+
+const Cart=lazy(()=>(import ("./components/Cart") )); 
 
 const AppLayout = () =>{
     const  [showSearch,setShowserach]=useState(false)
@@ -20,10 +24,15 @@ const AppLayout = () =>{
     return (
         <Provider store={appStore}>
             <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
-                <div className="pb-10 dark:bg-slate-800 h-[100%]">
+                <div className="pb-16 dark:bg-slate-800 h-[100%]">
             
-
+                    <div className="z-50 sticky top-0">
                     <Header/>
+                        
+
+
+                    </div>
+
                     <Outlet/>
             
                  </div>
@@ -54,6 +63,12 @@ const appRouter =createBrowserRouter([
             {
                 path:"/restaurants/:resId",
                 element :<RestaurantMenu/>,
+            } ,
+            {
+                path:"/cart",
+                element :<Suspense><Cart/>
+                </Suspense>
+
             }
         ],
         errorElement: <Error/>

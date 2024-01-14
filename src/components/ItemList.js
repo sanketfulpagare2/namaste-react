@@ -6,8 +6,9 @@ import { addItems } from '../utils/cartSlice'
 const ItemList = (item) => {
 
     const dispatch=useDispatch()
-    const handleAddItem=()=>{
-        dispatch(addItems("pizaa"));
+
+    const handleAddItem=(data)=>{
+        dispatch(addItems(data));
     }
    
   return (
@@ -16,7 +17,7 @@ const ItemList = (item) => {
         
         {item.data.map((data)=>
         
-        <div key={data?.card?.info?.id} className=' border-t-2 m-2 mt-5 p-5 flex border-gray-600 dark:border-gray-600 text-left'>
+        <div key={data?.card?.info?.id} className=' border-t-2 m-2  p-5 flex border-gray-600 dark:border-gray-600 text-left'>
             <div className="w-9/12">
                 <div className="font-semibold  ">
                     <span>{data?.card?.info?.name}</span><br/>
@@ -26,16 +27,20 @@ const ItemList = (item) => {
                 <p className='text-xs my-5'>{data?.card?.info?.description}</p>
             </div>
             <div className=' relative mx-4 flex justify-center place-items-end'>
-            <div className="absolute ">
-                    <button className=' py-1 px-4 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold'
+            <div className=" flex py-5 justify-center">
+                  
+                  
+                  
+                <img  src={CDN_URL+data?.card?.info?.imageId} className= "w-[190px] h-[120px] rounded-lg shadow-lg object-cover "></img>  
+                  
+                    <button className=' absolute py-1 px-4 rounded-md bg-white hover:scale-105   text-green-500 shadow-lg font-bold bottom-1 '
                     
-                        onClick={handleAddItem}
+                        onClick={()=>handleAddItem(data)}
                     
                     >Add +</button>
 
+                
                 </div>
-                <img  src={CDN_URL+data?.card?.info?.imageId} className= "w-[140px] h-[100px] rounded-lg shadow-md"></img>  
-               
 
             </div>  
         </div>
