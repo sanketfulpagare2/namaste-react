@@ -3,9 +3,16 @@ import { useState } from 'react';
 
 const DarkmodeTheme = () => {
     const [darkModeBtn,setDarkmodeBtn]=useState("🌙");
-   const toggleTheme=()=>{
+   
+   
+   
+    const toggleTheme=()=>{
     document.documentElement.classList.toggle('dark');
-   }
+   
+  }
+
+
+  
   return (
     <div>
         <button className="cursor-pointer" onClick={()=>{

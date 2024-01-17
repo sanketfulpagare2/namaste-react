@@ -24,18 +24,21 @@ const AppLayout = () =>{
     return (
         <Provider store={appStore}>
             <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
-                <div className="pb-16 dark:bg-slate-800 h-[100%]">
+               
+               
+               
+                <div className="pb-16 bg-gradient-to-b from-white from-99%  via-white via-99% to-sky-900   dark:from-slate-800 dark:to-slate-800  ">
             
                     <div className="z-50 sticky top-0">
-                    <Header/>
-                        
-
-
+                        <Header/>
                     </div>
 
-                    <Outlet/>
+                        <Outlet/>
             
-                 </div>
+                </div>
+
+
+
             </UserContext.Provider>
         </Provider>
     );

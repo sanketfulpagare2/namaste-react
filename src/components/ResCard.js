@@ -22,7 +22,7 @@ const ResCard = (props) => {
   
   return (
     <div
-      className="res-card  p-3 mx-2 w-[250px] min-h-[300px] bg-slate-50 justify-center rounded-md shadow-xl text-gray-700 dark:text-white
+      className="res-card  p-3 mx-2 w-[250px] min-h-[300px] bg-white justify-center rounded-md shadow-xl text-gray-700 dark:text-white
          dark:bg-slate-700  hover:scale-105 transition duration-300 ease-in-out "
     >
       <div className="res-logo ">
@@ -46,7 +46,7 @@ const ResCard = (props) => {
         <h4>{sla.deliveryTime} mins</h4>
       </div>
 
-      <h4 className="font-normal">{cuisines.slice(0, 4).join(", ")}</h4>
+      <h4 className="font-normal">{cuisines.slice(0, 5).join(", ")}</h4>
     </div>
   );
 };

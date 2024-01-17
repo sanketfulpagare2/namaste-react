@@ -21,9 +21,9 @@ const onlineStatus=useOnlineStatus();
  const {loggedInUser,setShowserach,showSearch}=useContext(UserContext);
 
     return (
-        <div className="flex justify-between h-[85px] bg-white dark:bg-slate-700 items-center shadow-2xl shadow-amber-100  dark:shadow-sky-900 ">
+        <div className="flex justify-between h-[85px] bg-white dark:bg-slate-700 items-center shadow-2xl shadow-amber-100   dark:shadow-sky-900 ">
             <div className="logo-container flex items-center gap-9">
-                <img className="w-[75px] rounded-full ms-6 mx-2"src= {LOGO_URL}alt="LOGO"/>
+                <img className="w-[75px] rounded-full ms-6 mx-2 "src= {LOGO_URL}alt="LOGO"/>
 
                    
                     {(btnName==="Logout") ? ( <div className="profile p-2 pe-5 rounded-full flex items-center gap-4 bg-amber-100 dark:bg-slate-800 ">

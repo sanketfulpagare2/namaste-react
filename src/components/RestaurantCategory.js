@@ -8,16 +8,13 @@ const [count, setcount] = useState(1);
 
   
 
-
-
-
 const clickHandler=()=>{
   (props.showItems)?setcount(count+1):setcount(1);
 
-        (count===2?setcount(1):setcount(count+1))
-  //  console.log(count)
+        (count===2?setcount(1):setcount(count+1));
   
-  props.setShowIndex()
+  
+  props.setShowIndex();
 
 
 }
@@ -31,13 +28,12 @@ const clickHandler=()=>{
           
           <span className="font-semibold text-lg">
             {title}({itemCards.length})</span>
-          <span>{"▼"}</span>
+          <span>{count===1?"▼":"▲"}</span>
         
         </div>
 
 
-           
-             
+ 
               {props.showItems &&count===2 &&  <ItemList data={itemCards} /> 
               
               }

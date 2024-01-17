@@ -10,15 +10,15 @@ const ResNestedItems = (props) => {
     const clickHandler=()=>{
         (props.showItems)?setcount(count+1):setcount(1);
       
-              (count===2?setcount(1):setcount(count+1))
+              (count===2?setcount(1):setcount(count+1));
      
         
-        props.setShowIndex()
+        props.setShowIndex();
       
       
       }
   return (
-   
+
 
     <div className="w-7/12 mx-auto my-4 m-5 py-2 px-4 rounded-md  bg-blue-100 shadow-md dark:bg-slate-700 dark:text-white  ">
       
@@ -30,21 +30,15 @@ const ResNestedItems = (props) => {
     
     </div>
 
-
-
          {
             categories.map(item=><div>
 
-
-
-
-
-                
                 {props.showItems &&count===2 && <ItemList data={item.itemCards}/>}
                 
                 </div>)
          }
-          {/* {props.showItems &&count===2 &&  <ItemList data={itemCards} />} */}
+          
+
     </div>
 
 

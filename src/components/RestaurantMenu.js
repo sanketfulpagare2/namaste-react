@@ -31,15 +31,24 @@ const RestaurantMenu = (props) => {
 
     
 
+
+
   const categories= resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
       c.card?.card?.["@type"] ===
-      ("type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") );
+      ("type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")  );
+
+      
 
   const categories2= resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
       c.card?.card?.["@type"] ===
       ("type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory") )
       
-     
+
+
+    console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+
+
+
 
  
   return (
@@ -55,6 +64,7 @@ const RestaurantMenu = (props) => {
           <RestaurantCategory
             key={category?.card?.card?.title}
             data={category?.card?.card}
+            
             showItems={index === showIndex ? true : false}
             setShowIndex={() => setShowIndex(index)}
           />

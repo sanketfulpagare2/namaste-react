@@ -3,9 +3,10 @@ import ResCard from "./ResCard";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import DarkmodeTheme from "./DarkmodeTheme";
+
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
+import SearchBar from "./SearchBar.js";
 
 const Body = () => {
   const [resListU, setresListU] = useState([]);
@@ -39,54 +40,43 @@ const Body = () => {
   if (resListU.length === 0) {
     return <Shimmer />;
   }
-  const filters = () => {
-    let filteredList = resListU.filter((item) => {
-      return item.info.name.toLowerCase().includes(searchName.toLowerCase());
-    });
+ 
+  
 
-    setfilterResList(filteredList);
-    console.log(filteredList);
-  };
+
+  if (filterResList === undefined) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body my-20">
+
+
+
+
+        
+
+
+
+    
+
       {showSearch && (
-        <div className="filter flex py-7  justify-center gap-10">
-          <input
-            className=" border-none rounded-full px-5 bg-green-50 outline-none dark:bg-blue-200 font-semibold w-[35rem]  shadow-lg de   "
-            type="text"
-            placeholder="Search By Name..."
-            value={searchName}
-            onChange={(e) => {
-              setsearchName(e.target.value);
-              filters();
-            }}
-          />
-          <button
-            className="search-btn bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => {
-              setsearchName("");
-              filters();
-            }}
-          >
-            All
-          </button>
-          <button
-            className="topRated-btn  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => {
-              const filterList = resListU.filter(
-                (res) => res.info.avgRating > 3.9
-              );
-              setfilterResList(filterList);
-              //    console.log(filterList);
-            }}
-          >
-            Top Rated
-          </button>
-        </div>
+       <SearchBar 
+       resListU={resListU}
+       searchName={searchName} 
+       setsearchName={setsearchName}
+       setfilterResList={setfilterResList}
+       ></SearchBar>
+       
       )}
 
+      
+
+
+
+
       <div className="card-container m-10 justify-center flex flex-wrap gap-7  ">
+      
         {filterResList.map((restaurant) => (
           <Link
             className="my-3"
