@@ -65,6 +65,7 @@ const RestaurantMenu = (props) => {
             key={category?.card?.card?.title}
             data={category?.card?.card}
             
+          
             showItems={index === showIndex ? true : false}
             setShowIndex={() => setShowIndex(index)}
           />
@@ -76,6 +77,7 @@ const RestaurantMenu = (props) => {
             key={category?.card?.card?.title}
             data={category?.card?.card}
             showItems={index === showIndex ? true : false}
+
             setShowIndex={() => setShowIndex(index)}
           />
        

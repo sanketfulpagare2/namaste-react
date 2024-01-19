@@ -25,11 +25,19 @@ const Body = () => {
     const json = await data.json();
 
     setresListU(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.sort(
+        (a,b)=>{
+          return a.info.sla.deliveryTime-b.info.sla.deliveryTime
+        }
+      )
     );
 
     setfilterResList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.sort(
+        (a,b)=>{
+          return a.info.sla.deliveryTime-b.info.sla.deliveryTime
+        }
+      )
     );
   };
 
@@ -76,7 +84,10 @@ const Body = () => {
 
 
       <div className="card-container m-10 justify-center flex flex-wrap gap-7  ">
-      
+          {console.log(filterResList)}
+    
+
+
         {filterResList.map((restaurant) => (
           <Link
             className="my-3"

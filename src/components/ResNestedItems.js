@@ -26,7 +26,7 @@ const ResNestedItems = (props) => {
       
       <span className="font-semibold text-lg">
         {title}</span>
-      <span>{"▼"}</span>
+        <span>{ count===2?"▲":"▼"}</span>
     
     </div>
 

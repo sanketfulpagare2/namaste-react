@@ -42,8 +42,15 @@ const {resListU,searchName,setsearchName,setfilterResList} =props;
               const filterList = resListU.filter(
                 (res) => res.info.avgRating > 3.9
               );
+
+              filterList.sort(
+                (a,b)=>{
+                  return b.info.avgRating-a.info.avgRating
+                }
+              )
+              console.log(filterList)
               setfilterResList(filterList);
-              console.log(filterList);
+              
             }}
           >
             Top Rated

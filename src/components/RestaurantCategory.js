@@ -5,11 +5,12 @@ import ItemList from './ItemList';
 const RestaurantCategory = (props) => {
 const{title,itemCards}=props?.data;
 const [count, setcount] = useState(1);
+const [downArrow, setdownArrow] = useState(true)
 
   
 
 const clickHandler=()=>{
-  (props.showItems)?setcount(count+1):setcount(1);
+  (props.showItems)?setcount(count+1):setcount(2);
 
         (count===2?setcount(1):setcount(count+1));
   
@@ -28,13 +29,14 @@ const clickHandler=()=>{
           
           <span className="font-semibold text-lg">
             {title}({itemCards.length})</span>
-          <span>{count===1?"▼":"▲"}</span>
+          <span>{ count===2?"▲":"▼"}</span>
         
         </div>
 
-
- 
-              {props.showItems &&count===2 &&  <ItemList data={itemCards} /> 
+              
+            
+              {props.showItems && count===2 &&  <ItemList data={itemCards} /> 
+              // {props.showItems && <ItemList data={itemCards} /> 
               
               }
         </div>
