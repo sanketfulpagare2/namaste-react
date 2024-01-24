@@ -17,7 +17,7 @@ const {resListU,searchName,setsearchName,setfilterResList} =props;
     
 <div className="filter flex py-7  justify-center gap-10">
           <input
-            className=" border-none rounded-full px-5 bg-green-50 outline-none dark:bg-blue-200 font-semibold w-[35rem]  shadow-lg de   "
+            className=" border-none rounded-full px-5 shadow-inner  bg-green-50 outline-none font-semibold w-[35rem]     "
             type="text"
             placeholder="Search By Name..."
             value={searchName}
@@ -27,6 +27,7 @@ const {resListU,searchName,setsearchName,setfilterResList} =props;
               
             }}
           />
+        
           <button
             className="search-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
             onClick={() => {

@@ -22,12 +22,12 @@ const ResCard = (props) => {
   
   return (
     <div
-      className="res-card  p-3 mx-2 w-[250px] min-h-[300px] bg-white justify-center rounded-md shadow-xl text-gray-700 dark:text-white
+      className="res-card  p-3 mx-2 w-[250px] min-h-[300px] bg-white  justify-center rounded-md shadow-xl text-gray-700 dark:text-white
          dark:bg-slate-700  hover:scale-105 transition duration-300 ease-in-out "
     >
       <div className="res-logo ">
         <h4 className="absolute bg-green-500 font-normal   px-2 rounded-r-full    ">
-          {aggregatedDiscountInfoV3.header}
+          {}
         </h4>
 
         <img

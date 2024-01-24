@@ -15,6 +15,7 @@ const RestaurantMenu = (props) => {
   
   const [showIndex, setShowIndex] = useState(0);
   const resInfo = useRestaurantMenu(resId);
+  const [prevIndex, setprevIndex] = useState(0)
   
   
  
@@ -45,7 +46,7 @@ const RestaurantMenu = (props) => {
       
 
 
-    console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+    // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 
 
 
@@ -58,16 +59,19 @@ const RestaurantMenu = (props) => {
         <b></b> {cuisines.join(", ")}
       </p>
         <h1 className="font-medium dark:text-white">Delivery Time : {sla.deliveryTime}mins </h1>
-      
+     
       {categories.map((category, index) => (
+        
      
           <RestaurantCategory
             key={category?.card?.card?.title}
             data={category?.card?.card}
             
-          
             showItems={index === showIndex ? true : false}
-            setShowIndex={() => setShowIndex(index)}
+
+            
+            //below prop works on click,dose not get invoked while re-render
+            setShowIndex={() => setShowIndex(index===showIndex?null:index)}
           />
        
       ))}
@@ -77,8 +81,9 @@ const RestaurantMenu = (props) => {
             key={category?.card?.card?.title}
             data={category?.card?.card}
             showItems={index === showIndex ? true : false}
-
-            setShowIndex={() => setShowIndex(index)}
+            
+            //below prop works on click,dose not get invoked while re-render
+            setShowIndex={() => setShowIndex(index===showIndex?null:index)}
           />
        
       ))}

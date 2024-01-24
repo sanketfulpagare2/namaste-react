@@ -83,8 +83,8 @@ const Body = () => {
 
 
 
-      <div className="card-container m-10 justify-center flex flex-wrap gap-7  ">
-          {console.log(filterResList)}
+      <div className="card-container m-10  py-2 rounded-xl  justify-center flex flex-wrap gap-7  ">
+        
     
 
 

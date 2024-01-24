@@ -12,10 +12,10 @@ import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import UserContext from "./utils/UserContext";
 import appStore from "./utils/appStore";
-// import Cart from "./components/Cart";
+import Cart from "./components/Cart";
 
 
-const Cart=lazy(()=>(import ("./components/Cart") )); 
+
 
 const AppLayout = () =>{
     const  [showSearch,setShowserach]=useState(false)
@@ -26,8 +26,8 @@ const AppLayout = () =>{
             <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
                
                
-               
-                <div className="pb-16 bg-gradient-to-b from-white from-99%  via-white via-99% to-sky-900   dark:from-slate-800 dark:to-slate-800  ">
+             
+                <div className=" pb-20 bg-gradient-to-b from-white from-99%  via-white via-99% to-sky-900   dark:from-slate-800 dark:to-slate-800  ">
             
                     <div className="z-50 sticky top-0">
                         <Header/>
@@ -36,6 +36,7 @@ const AppLayout = () =>{
                         <Outlet/>
             
                 </div>
+
 
 
 

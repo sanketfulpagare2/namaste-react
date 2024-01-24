@@ -6,17 +6,14 @@ const ResNestedItems = (props) => {
 
     const{title,categories}=props?.data;
     const [count, setcount] = useState(1);
-    console.log(categories)
+   
     const clickHandler=()=>{
-        (props.showItems)?setcount(count+1):setcount(1);
-      
-              (count===2?setcount(1):setcount(count+1));
-     
-        
+       
         props.setShowIndex();
       
       
       }
+      console.log(categories)
   return (
 
 
@@ -26,14 +23,14 @@ const ResNestedItems = (props) => {
       
       <span className="font-semibold text-lg">
         {title}</span>
-        <span>{ count===2?"▲":"▼"}</span>
+        <span>{ props.showItems?"▲":"▼"}</span>
     
     </div>
+          
+         { 
+            categories.map((item,index)=>< div key={index}  >  
 
-         {
-            categories.map(item=><div>
-
-                {props.showItems &&count===2 && <ItemList data={item.itemCards}/>}
+                {props.showItems && <ItemList data={item.itemCards}/>}
                 
                 </div>)
          }
