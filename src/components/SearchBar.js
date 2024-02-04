@@ -10,8 +10,9 @@ const {resListU,searchName,setsearchName,setfilterResList} =props;
         let filteredList = resListU.filter((item) => {
           return item.info.name.toLowerCase().includes(name.toLowerCase());
         });
+        
         setfilterResList(filteredList);
-       
+        
       };
   return (
     
@@ -24,6 +25,7 @@ const {resListU,searchName,setsearchName,setfilterResList} =props;
             onChange={(e) => {
               setsearchName(e.target.value);
               filters(e.target.value);
+              
               
             }}
           />
@@ -49,7 +51,7 @@ const {resListU,searchName,setsearchName,setfilterResList} =props;
                   return b.info.avgRating-a.info.avgRating
                 }
               )
-              console.log(filterList)
+              
               setfilterResList(filterList);
               
             }}

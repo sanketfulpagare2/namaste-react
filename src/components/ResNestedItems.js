@@ -13,7 +13,7 @@ const ResNestedItems = (props) => {
       
       
       }
-      console.log(categories)
+      // console.log(categories)
   return (
 
 

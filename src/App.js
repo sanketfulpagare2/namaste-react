@@ -19,11 +19,12 @@ import Cart from "./components/Cart";
 
 const AppLayout = () =>{
     const  [showSearch,setShowserach]=useState(false)
+   
     const {loggedInUser}=useContext(UserContext);
 
     return (
         <Provider store={appStore}>
-            <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach}}>
+            <UserContext.Provider value={{loggedInUser: loggedInUser,showSearch,setShowserach }}>
                
                
              
