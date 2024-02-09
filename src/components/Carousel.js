@@ -1,18 +1,22 @@
+
 import React from 'react'
 import { CDN_URL } from '../utils/constants';
+import { useState } from 'react';
+import ResCard from './ResCard';
+
 
 const Carousel = ({carousel,setfilterResList}) => {
 
    
-    console.log(carousel)
+   const [carouselList,setCarouselList]=useState([]);
     
   return (
-    <div className='relative mx-10'>
+    <div className='mx-14'>
        
-            <div className="flex overflow-x-auto mix-blend-multiply">
+            <div className="flex overflow-x-auto  rounded-full  scrollbar-hide">
 
 
-                {carousel.map((item)=> <img key={item.id} className='w-40  hover:cursor-pointer' 
+                {carousel.map((item)=> <img key={item.id} className='w-32 hover:cursor-pointer' 
                 
                 
                 
@@ -32,11 +36,11 @@ const Carousel = ({carousel,setfilterResList}) => {
 
 
 
-                            console.log(carousels)
+                        setCarouselList(carousels);
 
 
 
-                        console.log(item.entityId.slice(36))
+                    
                     }
                 
                 
@@ -47,7 +51,21 @@ const Carousel = ({carousel,setfilterResList}) => {
 
 
 
+
             </div>
+
+            {carouselList.length!==0 && carouselList.map(restaurant=>
+            <Link
+            className="my-3"
+            key={restaurant.card.card.info.id}
+            to={"/restaurants/" + restaurant.card.card.info.id}
+          >
+            <ResCard resData={restaurant.card.card} />
+          </Link>
+            
+            )
+
+            }
 
     </div>
   )

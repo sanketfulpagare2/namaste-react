@@ -64,6 +64,7 @@ const Body = () => {
           >
             <ResCard resData={restaurant} />
           </Link>
+          
         ))}
       </div>
     </div>
