@@ -47,7 +47,7 @@ const Items = ({data,vegfilter,CDN_URL}) => {
                     }</span>
                     <span>{data?.card?.info?.name}</span><br/>
                     <span>₹{
-                    Number(
+                    parseInt(
                     (itemCount!==0)?
                     (data?.card?.info?.price ? data?.card?.info?.price/100 :data?.card?.info?.defaultPrice/100 )* itemCount
                      :         (data?.card?.info?.price ? data?.card?.info?.price/100 :data?.card?.info?.defaultPrice/100 )  

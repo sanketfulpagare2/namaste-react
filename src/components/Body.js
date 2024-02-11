@@ -36,9 +36,7 @@ const Body = () => {
     <div className="body my-20">
 
 
-      <Carousel carousel={carousel}
-      setfilterResList={setfilterResList}
-       />
+    
 
       {showSearch && (
        <SearchBar 
@@ -49,9 +47,13 @@ const Body = () => {
        ></SearchBar>
        
       )}
-
+      
+       <Carousel carousel={carousel}
+      setfilterResList={setfilterResList}
+       />
+       
     
-      <div className="card-container m-10  py-2 rounded-xl  justify-center flex flex-wrap gap-7  ">
+      <div className="card-container mx-10  rounded-xl  justify-center flex flex-wrap gap-7  ">
         
     
 

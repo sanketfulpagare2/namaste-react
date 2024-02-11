@@ -3,6 +3,8 @@ import React from 'react'
 import { CDN_URL } from '../utils/constants';
 import { useState } from 'react';
 import ResCard from './ResCard';
+import { Link } from 'react-router-dom';
+
 
 
 const Carousel = ({carousel,setfilterResList}) => {
@@ -32,20 +34,9 @@ const Carousel = ({carousel,setfilterResList}) => {
                         const carousels= json.data.cards.filter((c) =>
                         c.card?.card?.["@type"] ===
                         ("type.googleapis.com/swiggy.presentation.food.v2.Restaurant") )
-
-
-
-
                         setCarouselList(carousels);
-
-
-
-                    
+                  
                     }
-                
-                
-                
-                
                 } src={CDN_URL+item.imageId}/>)}
 
 
@@ -54,6 +45,10 @@ const Carousel = ({carousel,setfilterResList}) => {
 
             </div>
 
+            <div className={carouselList.length!==0 && `m-10 py-2 rounded-xl bg-[#FDECCE] dark:bg-transparent dark:border-2 dark:border-slate-700 `}>
+              
+              <h1 className='font-bold mx-8 my-6 text-2xl dark:text-white'>Here are some popular restaurants in your area</h1>
+                  <div className=" flex w-11/12 py-5 overflow-x-scroll gap-5 ps-5 rounded-md  mx-auto  scrollbar-hide ">
             {carouselList.length!==0 && carouselList.map(restaurant=>
             <Link
             className="my-3"
@@ -65,7 +60,10 @@ const Carousel = ({carousel,setfilterResList}) => {
             
             )
 
+
             }
+            </div>
+          </div>
 
     </div>
   )

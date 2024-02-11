@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import ResNestedItems from "./ResNestedItems";
 import { useDispatch, useSelector } from "react-redux";
+import { Switch } from "@mui/material";
 
 
 
@@ -16,6 +17,7 @@ const RestaurantMenu = (props) => {
   const [showIndex, setShowIndex] = useState(0);
   const resInfo = useRestaurantMenu(resId);
   const [prevIndex, setprevIndex] = useState(0)
+  const [vegfilter, setvegfilter] = useState("");
   
   
  
@@ -48,7 +50,9 @@ const RestaurantMenu = (props) => {
 
     // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 
-
+    const isVegFilter=()=>{
+      vegfilter===""?setvegfilter("VEG"):setvegfilter("");
+    }
 
 
  
@@ -59,14 +63,20 @@ const RestaurantMenu = (props) => {
         <b></b> {cuisines.join(", ")}
       </p>
         <h1 className="font-medium dark:text-white">Delivery Time : {sla.deliveryTime}mins </h1>
+         
+        <span className="flex justify-center items-center"> 
+         <h4 className="text-green-600 font-bold">Only Veg </h4> <Switch color="info" onChange={isVegFilter}/>
+         </span>
      
+
+
       {categories.map((category, index) => (
         
-     
+       
           <RestaurantCategory
             key={category?.card?.card?.title}
             data={category?.card?.card}
-            
+            vegfilter={vegfilter}
             showItems={index === showIndex ? true : false}
 
             
@@ -80,6 +90,7 @@ const RestaurantMenu = (props) => {
           <ResNestedItems
             key={category?.card?.card?.title}
             data={category?.card?.card}
+            vegfilter={vegfilter}
             showItems={index === showIndex ? true : false}
             
             //below prop works on click,dose not get invoked while re-render

@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addItems, clearItems, removeItem } from '../utils/cartSlice'
 import MenuCategoryItems from './MenuCategoryItems'
 
-const ItemList = (item) => {
-    const [vegfilter, setvegfilter] = useState("");
+const ItemList = (props) => {
+
     
     
     
@@ -15,12 +15,12 @@ const ItemList = (item) => {
     <div>
         
         
-        {item.data.map((data)=>
+        {props.data.map((data)=>
         
         <MenuCategoryItems
         key={data?.card?.info?.id}
         data={data}
-        vegfilter={vegfilter}
+        vegfilter={props.vegfilter}
         CDN_URL={CDN_URL}
         
         

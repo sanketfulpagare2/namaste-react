@@ -30,7 +30,7 @@ const ResNestedItems = (props) => {
          { 
             categories.map((item,index)=>< div key={index}  >  
 
-                {props.showItems && <ItemList data={item.itemCards}/>}
+                {props.showItems && <ItemList data={item.itemCards} vegfilter={props.vegfilter}/>}
                 
                 </div>)
          }

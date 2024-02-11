@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 
 
 
+
 const Header = () =>{
 
  const cartItems =useSelector((store)=>store.cartD.items);
@@ -46,6 +47,10 @@ const onlineStatus=useOnlineStatus();
                     <li><Link to="/about">About Us</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li ><Link to="/cart">
+
+
+
+
                         <div className="flex items-center">
                             Cart
                              { cartItems.length!==0 &&
@@ -55,7 +60,12 @@ const onlineStatus=useOnlineStatus();
                         </span>
 
                         }
+                        
+                       
                     </div>
+
+
+
                     </Link></li>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=>{
                            btnName==="Login" ? (setbtnName("Logout"), setShowserach(true)) : setbtnName("Login");
