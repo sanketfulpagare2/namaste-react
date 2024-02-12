@@ -45,7 +45,7 @@ const Carousel = ({carousel,setfilterResList}) => {
 
             </div>
 
-            <div className={carouselList.length!==0 && `m-10 py-2 rounded-xl bg-[#FDECCE] dark:bg-transparent dark:border-2 dark:border-slate-700 `}>
+            <div className={carouselList.length!==0 ?`m-10 py-2 rounded-xl bg-[#FDECCE] dark:bg-transparent dark:border-2 dark:border-slate-700 `:undefined}>
               
               <h1 className='font-bold mx-8 my-6 text-2xl dark:text-white'>Here are some popular restaurants in your area</h1>
                   <div className=" flex w-11/12 py-5 overflow-x-scroll gap-5 ps-5 rounded-md  mx-auto  scrollbar-hide ">

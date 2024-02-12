@@ -12,7 +12,7 @@ const Cart = () => {
 
 
 
- const {items}=useSelector(store=>store.cartD);
+ const cartItems=useSelector(store=>store.cartD.items);
  const {loggedInUser}=useContext(UserContext)
  const [itemPrice,setItemPrice]=useState(0);
 
@@ -32,8 +32,8 @@ const Cart = () => {
         
         <button  className="py-1 px-4 rounded-md bg-white hover:scale-105   text-green-500 shadow-lg font-bold" onClick={()=>handlerBtn()}>Clear Cart</button>
         <div className="itemCartList px-60 my-9">        
-             <ItemList data={items}/>
-            {/* <CartItemList  data={items}  />  */}
+             {/* <ItemList data={items}/> */}
+            <CartItemList  data={cartItems}  /> 
 
         </div>
         <h1>Total Price:

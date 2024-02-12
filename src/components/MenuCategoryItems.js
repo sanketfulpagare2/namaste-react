@@ -4,34 +4,39 @@ import { addItems, clearItems, removeItem, } from '../utils/cartSlice'
 
 
 import UserContext from '../utils/UserContext'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 
 
 const Items = ({data,vegfilter,CDN_URL}) => {
 
+    useEffect(()=>{
+        let thatItem=cartItems.find(item => (item.card.info.id === data.card.info.id))
+        thatItem? setItemCount(thatItem.quantity):setItemCount(1);
+
+    },[])
+
 
     const cartItems=useSelector(store=>store.cartD.items);
     
-    const [itemCount, setItemCount] = useState(1);
+    const [itemCount, setItemCount] = useState(0);
     const dispatch=useDispatch();
 
     const handleAddItem=(data)=>{
+        let thatItem=cartItems.find(item => (item.card.info.id === data.card.info.id))
+         thatItem? setItemCount(thatItem.quantity+1):setItemCount(1);
         dispatch(addItems(data));
+        
         
 
     }
     const handleremoveItem=(data)=>{
        
-        setItemCount(itemCount-1)
-        if(itemCount===1){
-            setItemCount(1)
-            dispatch(removeItem(data));
-            
-        }
+        dispatch(removeItem(data));
+       setItemCount(itemCount-1)
       
     }
-
+   
   return (
     <div>
     
@@ -65,7 +70,11 @@ const Items = ({data,vegfilter,CDN_URL}) => {
                 <img  src={CDN_URL+data?.card?.info?.imageId} className= "w-[190px] h-[120px] rounded-lg object-cover "></img>  
                   <div className="div absolute py-1 px-1 rounded-md bg-white hover:scale-105   text-amber-500 shadow-lg font-extrabold bottom-1">
                 
-                   {cartItems.includes(data) ?
+                   {cartItems.find(item => (item.card.info.id === data.card.info.id))
+
+ 
+                
+                   ?
                    <>
                       <button className='px-2  border-solid border-r-2 border-amber-300 '
                     
@@ -73,10 +82,15 @@ const Items = ({data,vegfilter,CDN_URL}) => {
                     
                         >-</button>
 
-                        <span className='px-2  '>{itemCount}</span>
+                       
+                        
+                        <span className='px-2  '>
+                            {itemCount}
+                            </span>
+                        
                         <button className=' px-2 border-solid border-l-2 border-amber-300'
                     
-                        onClick={()=> setItemCount(itemCount+1)}
+                        onClick={()=> handleAddItem(data)}
                     
                          >+</button>
                     </>: ( <button className=' px-4  border-solid  border-amber-300'
