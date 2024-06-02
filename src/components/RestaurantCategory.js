@@ -37,9 +37,9 @@ const clickHandler=()=>{
 
               
            
-              {/* {props.showItems &&  <ItemList data={itemCards} /> } */}
+              
               {props.showItems && <ItemList data={itemCards} vegfilter={props.vegfilter} /> }
-              {/* { <div className={`${(props.showItems)? " hidden  ":" m-2 bg-black"}`}><ItemList data={itemCards} /></div> } */}
+              
               
               
               

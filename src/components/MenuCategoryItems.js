@@ -22,6 +22,11 @@ const Items = ({data,vegfilter,CDN_URL}) => {
     const [itemCount, setItemCount] = useState(0);
     const dispatch=useDispatch();
 
+
+
+
+
+
     const handleAddItem=(data)=>{
         let thatItem=cartItems.find(item => (item.card.info.id === data.card.info.id))
          thatItem? setItemCount(thatItem.quantity+1):setItemCount(1);
@@ -54,7 +59,7 @@ const Items = ({data,vegfilter,CDN_URL}) => {
                     <span>₹{
                     parseInt(
                     (itemCount!==0)?
-                    (data?.card?.info?.price ? data?.card?.info?.price/100 :data?.card?.info?.defaultPrice/100 )* itemCount
+                    (data?.card?.info?.price ? data?.card?.info?.price/100 :data?.card?.info?.defaultPrice/100 )
                      :         (data?.card?.info?.price ? data?.card?.info?.price/100 :data?.card?.info?.defaultPrice/100 )  
                      
                     )
@@ -115,4 +120,4 @@ const Items = ({data,vegfilter,CDN_URL}) => {
   )
 }
 
-export default Items
+export default Items;

@@ -2,10 +2,13 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
+  
   "scripts": {
-    "start": "parcel index.html",
-    "test": "jest"
+    "start": "npx parcel index.html",
+
+    "test": "jest",
+    "build": "npx parcel build index.html"
+
   },
   "author": "Sanket Fulpagare",
   "license": "ISC",
