@@ -10,7 +10,7 @@ import { CDN_URL } from '../utils/constants'
 const CartItemList = ({data}) => {
 
   
-  console.log(data)
+  // console.log(data)
   return (
     <div>{
        data.map((item=><div className="">

@@ -25,7 +25,7 @@ const RestaurantMenu = (props) => {
   if (resInfo.length === 0) {
     return <Shimmer />;
   }
-  console.log(resInfo)
+  // console.log(resInfo)
   const { name, cuisines ,sla } = resInfo?.cards[2]?.card?.card?.info;
 
   
